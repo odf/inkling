@@ -17,7 +17,7 @@
     <tbody>
       <% for feed in @feeds %>
 	<tr>
-	  <td><%= feed.title %></td>
+	  <td><%= link_to feed.title, inkling_feed_path(feed) %></td>
 	  <td><%= feed.format %></td>
 	  <td><%= feed.class %></td>
 	  <td><%= feed.criteria %></td>
