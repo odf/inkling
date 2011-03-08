@@ -1,0 +1,26 @@
+<%= link_to "Add feed", new_inkling_feed_path %> 
+
+
+<% if @feeds.size == 0 %>
+  <p>No feeds yet</p>
+<% else %>
+  <p>Feeds: <%= @feeds.size %></p>
+  <table cellspacing="10">  <!-- pre-css :) -->
+    <thead>
+      <tr>
+	<th> Title </th>
+	<th> Feed Format </th>
+	<th> Source class name </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for feed in @feeds %>
+	<tr>
+	  <td><%= feed.title %></td>
+	  <td><%= feed.format %></td>
+	  <td><%= feed.class %></td>
+	</tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

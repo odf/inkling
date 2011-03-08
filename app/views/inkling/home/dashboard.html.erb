@@ -1,13 +1,11 @@
-
-
 <table width=60%>
 <% i = 0
 for file in dashboard_partials %>
-	<%if i == 0 %> <tr> <% end %>
-		<td valign=top>
-			<%= render(:file => file) %>
-		</td>
-	<%if i == 1 %> </tr> <% end %>
-	<% i += 1 %>
+  <%if i == 0 %> <tr> <% end %>
+    <td valign=top>
+      <%= render(:file => file) %>
+    </td>
+  <%if i == 1 %> </tr> <% end %>
+  <% i += 1 %>
 <% end %>
 </table>

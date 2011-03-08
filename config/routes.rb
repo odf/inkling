@@ -2,7 +2,7 @@ Rails.application.routes.draw do |map|
   match 'inkling/home', :to => 'inkling/home#dashboard', :as => "user_root"  
     
   namespace :inkling do
-    resources :paths, :themes
+    resources :paths, :themes, :feeds
     match 'update_tree' => 'paths#update_tree', :as => :update_tree    
     match 'proxy_new' => 'proxying#new', :as => :proxy_new
 

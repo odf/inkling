@@ -1,0 +1,17 @@
+<% if resource.errors.any? %>
+    <h2><%= pluralize(resource.errors.count, "error") %> stopped this <%= @feed.class %> from being saved:</h2>
+    <ul>
+    <% resource.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<% semantic_form_for @feed do |form| %>
+  <%= form.input :title %>
+  <%= form.input :format, :collection => ["Atom", "RSS2", "Email"], :include_blank => false %>
+  <%= form.input :source %>
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>
