@@ -3,7 +3,11 @@ class Inkling::Feed < ActiveRecord::Base
 
   belongs_to :user, :class_name => "Inkling::User", :foreign_key => :user_id
   has_many :inkling_feed_roles, :class_name => "Inkling::FeedRole"
+  validates_presence_of :user
   validates_uniqueness_of :title
+  validates_length_of :title, :minimum => 1
+  validates :format, :feed_format => true
+  validates_length_of :source, :minimum => 1
 
   private
   def feedable_class
