@@ -1,2 +1,3 @@
-testapp/db/migrate/20100906071942_create_inkling_tables.rb
-
+testapp/db/migrate
+testapp/config/database.yml
+*.swp
