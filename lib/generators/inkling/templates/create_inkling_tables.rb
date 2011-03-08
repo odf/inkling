@@ -65,6 +65,7 @@ class CreateInklingTables < ActiveRecord::Migration
       t.string :title, :null => false     # Name of the feed
       t.string :format, :null => false    # Delivery mechanism (Atom, RSS2, Email, etc)
       t.string :source, :null => false    # Class name which implements the methods of Inkling::FeedSource
+      t.string :criteria                  # A string that gets passed to the FeedSource
     end    
 
     create_table :inkling_feed_roles do |t|
