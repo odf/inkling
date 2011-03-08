@@ -1,4 +1,5 @@
 Rails.application.routes.draw do |map|
+  match 'inkling/home', :to => 'inkling/home#dashboard', :as => "user_root"  
     
   namespace :inkling do
     resources :paths, :themes
@@ -10,7 +11,6 @@ Rails.application.routes.draw do |map|
       match 'content_types' => 'content_types#index', :as => :content_types
     end
 
-    match 'home', :to => 'home#dashboard', :as => "user_root"  
     devise_for "users", :controllers => { :sessions => "inkling/users/sessions", :passwords => "inkling/users/passwords", :confirmations => "inkling/users/confirmations"}, :class_name => "Inkling::User"
   end
 end

@@ -1,7 +1,5 @@
 Testapp::Application.routes.draw do |map|
   
-  match 'home', :to => 'inkling/home#dashboard', :as => "user_root"
-  
   namespace :inkling do
     namespace :content_types do
       resources :pages
