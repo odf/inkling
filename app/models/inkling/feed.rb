@@ -1,4 +1,4 @@
-class Inkling::Feed < ActiveRecord::Base    
+class Inkling::Feed < ActiveRecord::Base
   set_table_name 'inkling_feeds'
 
   belongs_to :user, :class_name => "Inkling::User", :foreign_key => :user_id
