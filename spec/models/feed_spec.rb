@@ -1,0 +1,41 @@
+require File.dirname(__FILE__) + '/../spec_helper'
+
+# This class must exist or the format validation fails
+class TestAtom
+  # The generate method makes it look like a good Inkling::Feed::Format:
+  def generate feedable
+  end
+end
+
+describe Inkling::Feed do
+
+  it "should allow creation of a new feed" do
+    user = Inkling::User.find(:first)
+    f = Inkling::Feed.create(
+        :user => user,
+        :title => 'Some title',
+        :format => 'TestAtom',
+        :criteria => '',
+        :source => 'String'
+      )
+    if f.errors.size != 0
+      puts "Unexpected errors: #{f.errors.to_a*', '}"
+    end
+    f.errors.size.should == 0
+  end
+
+  it "should enforce required fields" do
+    user = Inkling::User.find(:first)
+    attrs = {
+        :user => user,
+        :title => 'Some title',
+        :format => 'TestAtom',
+        :source => 'String'
+      }
+    # Try dropping each field one at a time
+    attrs.keys.each do |k|
+      f = Inkling::Feed.create(attrs.except k)
+      f.errors.size.should == 1
+    end
+  end
+end

@@ -1,4 +1,4 @@
-#maintain one record which will theme the entire site for now
+# maintain one record which will theme the entire site for now
 
 class Inkling::Theme < ActiveRecord::Base
   include FileUtils

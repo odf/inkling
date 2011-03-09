@@ -1,0 +1,4 @@
+testapp/db/migrate
+testapp/db/schema.rb
+testapp/config/database.yml
+*.swp

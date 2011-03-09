@@ -59,9 +59,27 @@ class CreateInklingTables < ActiveRecord::Migration
       t.integer :user_id
     end    
 
+    create_table :inkling_feeds do |t|
+      t.timestamp :created_at, :null => false
+      t.integer :user_id, :null => false  # Who created the feed
+      t.string :title, :null => false     # Name of the feed
+      t.string :format, :null => false    # Delivery mechanism (Atom, RSS2, Email, etc)
+      t.string :source, :null => false    # Class name which implements the methods of Inkling::FeedSource
+      t.string :criteria                  # A string that gets passed to the FeedSource
+    end    
+
+    create_table :inkling_feed_roles do |t|
+      t.timestamp :created_at, :null => false
+      t.string :title, :null => false
+      t.integer :feed_id, :null => false
+      t.integer :role_id, :null => false
+    end    
+
   end
 
   def self.down
+    drop_table :inkling_feed_roles
+    drop_table :inkling_feeds
     drop_table :inkling_paths
     drop_table :inkling_can_can_actions
     drop_table :inkling_types    
