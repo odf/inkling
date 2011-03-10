@@ -41,7 +41,6 @@ Inkling::Feed.blueprint do
   user
   title Sham.title
   source Sham.word
-  format "TestAtom"
   criteria Sham.reason  
 end
 
