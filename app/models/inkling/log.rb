@@ -6,5 +6,6 @@ class Inkling::Log < ActiveRecord::Base
   validates_presence_of :category
   validates_presence_of :text  
 
-  SYSTEM = "inkling system"
+  SYSTEM  = "inkling system"
+  USERS   = "users"
 end

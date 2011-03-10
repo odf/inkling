@@ -9,9 +9,11 @@ class Inkling::Users::SessionsController < Devise::SessionsController
   
   def log
     if params[:action] == "create"
-      Inkling::Log.create!(:user => current_inkling_user, :text => "#{current_inkling_user.email} signed in.")
+      Inkling::Log.create!(:user => current_inkling_user, :text => "#{current_inkling_user.email} signed in.", 
+      :category => Inkling::Log::USERS)
     elsif params[:action] == "destroy"
-      Inkling::Log.create!(:user => current_inkling_user, :text => "#{current_inkling_user.email} signed out.")      
+      Inkling::Log.create!(:user => current_inkling_user, :text => "#{current_inkling_user.email} signed out.",
+      :category => Inkling::Log::USERS)      
     end
   end
 end
