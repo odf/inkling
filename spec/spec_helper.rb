@@ -26,3 +26,11 @@ Rspec.configure do |config|
   
   config.include Devise::TestHelpers, :type => :controller
 end
+
+
+#helper code
+class TestAtom
+  # The generate method makes it look like a good Inkling::Feed::Format:
+  def generate feedable
+  end
+end

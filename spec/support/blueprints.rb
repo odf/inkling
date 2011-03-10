@@ -36,6 +36,14 @@ Inkling::RoleMembership.blueprint do
   user
 end
 
+#for Feed a Format which has a method "generate" is required, see tests
+Inkling::Feed.blueprint do
+  user
+  title Sham.title
+  source Sham.word
+  criteria Sham.reason  
+end
+
 def make_user(role_name)
   role_name = role_name.to_s if role_name.is_a? Symbol
   user = Inkling::User.make

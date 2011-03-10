@@ -1,6 +1,8 @@
 class Inkling::Feed < ActiveRecord::Base
   set_table_name 'inkling_feeds'
 
+  acts_as_inkling "Inkling Feed"
+
   belongs_to :user, :class_name => "Inkling::User", :foreign_key => :user_id
   has_many :inkling_feed_roles, :class_name => "Inkling::FeedRole"
   validates_presence_of :user

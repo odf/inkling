@@ -1,13 +1,12 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Inkling::Path do
-
-  # let(:foo) {ContentTypes::Foo.create(:name => "1")}
-  # 
-  # it "should update the path based on its parent" do
-  #   foo2 = ContentTypes::Foo.create(:name => "2")
-  #   foo2.path.move_to_child_of foo.path  
-  #   foo2.save  
-  #   foo2.path.slug.should == "/1/2"
-  # end
+  
+  specify "that inkling::path is deleted when the inkling obj is deleted" do
+    feed = Inkling::Feed.make(:format => "TestAtom")
+    feed.path.should_not be_nil
+    url = feed.path.slug
+    feed.destroy
+    Inkling::Path.find_by_slug(url).should be_nil
+  end
 end
