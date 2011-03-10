@@ -1,5 +1,5 @@
 Rails.application.routes.draw do |map|
-  match 'inkling/home', :to => 'inkling/home#dashboard', :as => "user_root"  
+  match 'inkling/home', :to => 'inkling/home#dashboard'
     
   namespace :inkling do
     resources :paths, :themes, :feeds
