@@ -37,7 +37,7 @@ namespace :inkling do
     Inkling::Role.create!(:name => Inkling::Role::ADMIN)
     Rake::Task["inkling:default_admin"].execute
     puts "Inkling> Created administrator role."
-    Inkling::Log.create!(:text => "System was installed.")
+    Inkling::Log.create!(:text => "System was installed.", :type => Inkling::Log::SYSTEM)
   end
   
   task :welcome_msg do

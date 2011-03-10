@@ -1,88 +1,18 @@
-Inkling is a DSL and framework for Rails 3 providing for defining your own knowledge management system. 
+Inkling is a Rails 3 engine containing a toolset for building your own Knowledge Management System - e.g. a CMS, a document management system, a blog, etc.. 
 
-It isn't ready for general use yet, and will be refactored heavily in December; to reflect an emerging DSL for defining knowledge management systems.
+Current features:
 
+* Easy conversion of ActiveRecord models to 'inkling' objects
 
+ Add 'acts_as_inkling' to your ActiveRecord model, and it gains URL behaviour which can be convenient mapped in config/routes.rb.
+* Theming
 
-
-Feature Overview
-----------------
-
-Types:
-
-ActiveRecord objects can be adopted by the framework. Define your ActiveRecord with 'act_as_inkling' and it will be included in the system with menuing, security, routing, workflows.
-
-Namespacing:
-
-All tables are namespaced - e.g. inkling_users - to avoid collision with other tables - e.g. the user table of an ecommerce app..
-
-Dashboard:
-
-Create a partial (_.+*_dashboard.+*) in your app and it will be automatically included in the dashboard. So you can extend the interface for your own users and integrate whatever you like.
-
-Tree:
-
-A tree UI presents the arrangement of all types in the system, letting users drag and drop inklings, create news ones, edit them, etc..
-
-Permissioning:
-
-There's one default role, the administrator, that can do everything. But you can create others, and give them permissions (to, say, create but not delete images). You can also create new permissions and new roles for your own extensions. (Inkling uses CanCan)
-
-Devise Authentication:
-
-The authentication system can be turned on or off (you would turn it off to integrate it within your own app's authentication). It uses Devise (see http://github.com/plataformatec/devise)
-
-Workflow API: (coming)
-
-A simple default Workflow - draft -> publish - is included for most objects, but you can define your own and attach them to any inkling type.
-
-
-
-
-For more see the Development Guide (http://wiki.github.com/biv/inkling/developers-guide) and the Roadmap (http://wiki.github.com/biv/inkling/roadmap).
-
-
-The documentation below is a work in progress and will be revised at some point. The Installing advice is current.
 
 Installing
 ----------
-
-Some quick instructions for setting up Inkling and Inkling-CMS to get an idea of what's being built.
-
-Clone inkling.
-
-Go into inkling, run 'bundle install' (you'll need Ruby 1.9.x).
-
-cd testapp
-
-Configure your config/database.yml with a database for the test app. 
-
-rake install
-
-rake inkling:bootstrap
+Download ad
 
 
-Implementing your own System
-----------------------------
-
-1) Define themes.
-
-The administrator account will always be able to see the Inkling administrator layout, which contains configuration information. To implement a system, you must define two themes:
-
-The management theme - this is the layout backend users will see when they use your system.
-The content theme - this is the theme public visitors will see when they look at content.
-
-
-
-Running The Tests
------------------
-Inkling is an engine and needs a Rails application to execute its tests against. Tests (rspec examples and cucumber features) are kept in the top level engine directory, and symlinked into the testapp/spec and testapp/featured directories.
-
-To run the tests:
-
-cd testapp
-
-rake inkling:megatest #(a custom task which runs the environment, rspec, then features)
 
 
 EXTENDING INKLING

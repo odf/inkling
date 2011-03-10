@@ -6,6 +6,8 @@ Testapp::Application.routes.draw do |map|
     end    
   end
   
+  inkling_match(:test)
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

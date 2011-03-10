@@ -1,6 +1,14 @@
 
 module Inkling
   module Routing
+    module Helpers
+      def inkling_match(resource_sym)
+        inkling_str = resource_sym.to_s
+        klass = inkling_str.classify
+        match '/*path' => "#{inkling_str}#show", :as => resource_sym, :constraints => Inkling::Routing::TypeConstraint.new(klass)
+      end
+    end
+        
     class TypeConstraint
       attr_accessor :type
 
