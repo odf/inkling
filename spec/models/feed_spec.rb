@@ -8,9 +8,9 @@ class TestAtom
 end
 
 describe Inkling::Feed do
+  let(:user) {Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")}  
 
   it "should allow creation of a new feed" do
-    user = Inkling::User.find(:first)
     f = Inkling::Feed.create(
         :user => user,
         :title => 'Some title',
@@ -25,7 +25,6 @@ describe Inkling::Feed do
   end
 
   it "should enforce required fields" do
-    user = Inkling::User.find(:first)
     attrs = {
         :user => user,
         :title => 'Some title',
