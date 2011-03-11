@@ -1,13 +1,15 @@
 Testapp::Application.routes.draw do |map|
-  
+
   namespace :inkling do
     namespace :content_types do
       resources :pages
-    end    
+    end
   end
-  
+
   inkling_match(:test)
-  
+
+  match '/logs/feed(.:format)' => 'log_feeds#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
