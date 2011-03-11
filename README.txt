@@ -23,8 +23,9 @@ cd into testapp
 
 'rake inkling:bootstrap' - to get started.
 
-'rake inklingLrebuild' - to regenerate everything.
+'rake inkling:rebuild' - to regenerate everything.
 
+'rails server' - to start the testapp server
 
 Contributors
 ------------
