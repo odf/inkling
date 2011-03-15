@@ -37,4 +37,13 @@ describe Inkling::Feed do
       f.valid?.should == false
     end
   end
+  
+  it "should work with Inkling::Feeds::Atom and Inkling::Feeds::LogSource" do
+    feed = Inkling::Feed.make(:format => "Inkling::Feeds::Atom", :source => "Inkling::Feeds::LogSource")
+    #make some test data
+    99.times {|i| Inkling::Log.make}
+    xml = feed.generate
+    puts xml
+    xml.should_not be_nil
+  end
 end

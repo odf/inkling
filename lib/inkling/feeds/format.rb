@@ -1,7 +1,6 @@
 # An Inkling feed format generates an encoded feed from a collection of source objects
 module Inkling
   module Feeds
-# class Inkling::Feed::Format
     module Format
       
       # option_attrs = [ :title, :subtitle, :links, :authors, :contributors, :id]

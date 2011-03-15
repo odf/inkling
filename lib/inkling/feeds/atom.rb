@@ -1,17 +1,20 @@
-require 'inkling/feed/format'
 require 'atom'
 require 'digest/sha1'
 
-class Inkling::Feeds::Atom < Inkling::Feed::Format
+class Inkling::Feeds::Atom 
+  include Inkling::Feeds::Format
   
-  def generate
+  def self.generate(record)
+    @sources = record.source_class.list
+    
     feed = ::Atom::Feed.new do |f|
       f.title = @title
-      f.links << ::Atom::Link.new(:href => @options[:url]) if @options[:url]
+      f.links << ::Atom::Link.new(:href => record.path.slug) 
       updated = @sources.map{|s| s[:updated_at]}.max || Time.now
+    
       f.updated = updated.to_s(:iso8601)
-      f.authors << ::Atom::Person.new(:name => @options[:authors]) if @options[:authors]
-      f.id = 'tag:'+@id
+      f.authors << ::Atom::Person.new(:name => "test person")
+      f.id = 'tag:'+ record.id.to_s
 
       @sources.each do |source|
         entry = ::Atom::Entry.new do |e|
@@ -31,6 +34,7 @@ class Inkling::Feeds::Atom < Inkling::Feed::Format
         f.entries << entry
       end
     end
+
     feed.to_xml
   end
 end

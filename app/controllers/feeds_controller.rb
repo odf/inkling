@@ -19,8 +19,6 @@ class FeedsController < ApplicationController
     respond_to do |format|
       # format.html # show.html.erb
       format.xml do
-        
-        
         # @sources = Inkling::Log.find(:all, :order => 'created_at DESC', :limit => 100)
         # Each source in @sources should respond to to_feedable which should return a hash with keys:
         # :title, :url, :updated_at, and either :html or :text

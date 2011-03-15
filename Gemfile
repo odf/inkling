@@ -8,7 +8,7 @@ gem "devise", ">= 1.1.3"
 gem 'inherited_resources'
 gem 'formtastic', '>= 1.1.0'
 # gem 'cancan'
-
+gem "ratom"
  
 group :development, :test do
 	gem "rspec-rails", ">= 2.5.0"

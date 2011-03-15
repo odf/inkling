@@ -27,6 +27,12 @@ Inkling::Role.blueprint do
   name Sham.name
 end
 
+Inkling::Log.blueprint do
+  user
+  text Sham.description
+  category Sham.word
+end
+
 Inkling::Role.blueprint(:admin) do
   name "administrator"
 end

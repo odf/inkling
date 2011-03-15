@@ -16,15 +16,13 @@ class Inkling::Feed < ActiveRecord::Base
   validates_length_of :source, :minimum => 1
 
   def generate
-    format_class.generate(source_class)
+    format_class.generate(self)
   end
 
   def format_required_method
     return if format.nil?
     format_class.respond_to? :generate
   end
-
-  private
   def format_class
     # class_by_name format, 'Inkling::Feedable'
     format.constantize
