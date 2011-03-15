@@ -5,6 +5,7 @@ require "inkling/version"
 require "inkling/util/slugs"
 require "inkling/routing"
 require "inkling/util"
+require 'inkling/feeds'
 require 'cancan'
 require "inkling/ability"
 require "devise"

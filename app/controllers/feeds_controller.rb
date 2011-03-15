@@ -1,20 +1,20 @@
-require 'inkling/feed/format'
-require 'inkling/feed/atom'
+class FeedsController < ApplicationController
 
-class LogFeedsController < ApplicationController
+  # Valid options are:
+  # :title
+  # :subtitle
+  # :authors
+  # :contributors
+  # :domain
+  # :id
+
+
   def show
-    # Valid options are:
-    # :title
-    # :subtitle
-    # :authors
-    # :contributors
-    # :domain
-    # :id
     options = {
       :title => "Inkling log",
       :id => request.url
     }
-
+    
     respond_to do |format|
       # format.html # show.html.erb
       format.xml do

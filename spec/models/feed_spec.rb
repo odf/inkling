@@ -1,11 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 # This class must exist or the format validation fails
-class TestAtom
-  # The generate method makes it look like a good Inkling::Feed::Format:
-  def generate feedable
-  end
-end
+# class TestAtom
+#   # The generate method makes it look like a good Inkling::Feed::Format:
+#   def generate feedable
+#   end
+# end
 
 describe Inkling::Feed do
   let(:user) {Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")}  

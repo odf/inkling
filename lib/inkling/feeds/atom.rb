@@ -2,7 +2,8 @@ require 'inkling/feed/format'
 require 'atom'
 require 'digest/sha1'
 
-class Inkling::Feed::Format::Atom < Inkling::Feed::Format
+class Inkling::Feeds::Atom < Inkling::Feed::Format
+  
   def generate
     feed = ::Atom::Feed.new do |f|
       f.title = @title
