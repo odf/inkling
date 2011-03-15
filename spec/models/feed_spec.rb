@@ -33,8 +33,8 @@ describe Inkling::Feed do
       }
     # Try dropping each field one at a time
     attrs.keys.each do |k|
-      f = Inkling::Feed.create(attrs.except k)
-      f.errors.size.should == 1
+      f = Inkling::Feed.new(attrs.except k)
+      f.valid?.should == false
     end
   end
 end
