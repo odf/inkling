@@ -6,9 +6,7 @@ Testapp::Application.routes.draw do |map|
     end
   end
 
-  inkling_match(:test)
-
-  match '/logs/feed(.:format)' => 'log_feeds#show'
+  inkling_match("inkling/feed")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

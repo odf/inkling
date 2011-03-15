@@ -12,7 +12,7 @@ class Inkling::Feed < ActiveRecord::Base
   validates_length_of :source, :minimum => 1
   validates_length_of :format, :minimum => 1
   
-  validate :format_required_method, :message => "An Inkling::Feeds::Format must implement self.generate(source_class)."
+  validate :format_required_method, :message => "An Inkling::Feeds::Format must implement self.generate(feed)."
   validates_length_of :source, :minimum => 1
 
   def generate
