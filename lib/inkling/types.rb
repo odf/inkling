@@ -15,7 +15,8 @@ module Inkling
           self.friendly_name = (friendly_name or self)
           has_one :path, :as => :content, :dependent => :destroy, :class_name => "Inkling::Path"
           after_create :create_path
-          after_update :update_path
+          after_update :update_path, :if => "self.path"
+          after_update :create_path, :if => "self.path.nil?"
         
           send :include, InstanceMethods
         end
@@ -30,7 +31,7 @@ module Inkling
         path.save!
       end
           
-      def update_path
+      def update_path        
         self.path.update_slug!
         self.path.save!
       end
