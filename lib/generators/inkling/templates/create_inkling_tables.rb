@@ -6,7 +6,7 @@ class CreateInklingTables < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.trackable
-      t.timestamps
+      t.encryptable
       t.timestamps
     end
     
