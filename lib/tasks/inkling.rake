@@ -53,10 +53,9 @@ namespace :inkling do
     desc "Each Inkling::Path loads its content item and calls save! on it, forcing the path to update."
     task :paths => [:environment] do
       for path in Inkling::Path.all
+        puts "Path id: (#{path.id}) calling save! on content #{path.content_type} (#{path.content.id})"
         path.content.save!
       end
     end
-  
   end
-  
 end
