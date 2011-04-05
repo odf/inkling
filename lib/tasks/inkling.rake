@@ -46,4 +46,17 @@ namespace :inkling do
   
   desc "Runs specs and cukes."
   task :megatest => [:environment, :spec, :cucumber]
+  
+  
+  namespace :rebuild do
+    
+    desc "Each Inkling::Path loads its content item and calls save! on it, forcing the path to update."
+    task :paths => [:environment] do
+      for path in Inkling::Path.all
+        path.content.save!
+      end
+    end
+  
+  end
+  
 end
