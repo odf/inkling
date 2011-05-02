@@ -10,7 +10,5 @@ Rails.application.routes.draw do
       resources :users, :roles, :permissions
       match 'content_types' => 'content_types#index', :as => :content_types
     end
-  
-    devise_for "users", :controllers => { :sessions => "inkling/users/sessions", :passwords => "inkling/users/passwords", :confirmations => "inkling/users/confirmations"}, :class_name => "Inkling::User"
   end
 end
