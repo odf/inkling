@@ -30,8 +30,6 @@ module Inkling
 
 Welcome!
 Inkling was bootstrapped at #{Time.now}.
-Start the server ('rails server') then visit http://localhost:3000/inkling/users/sign_in. 
-Use the default admin account admin@localhost.com/test123.
-
+Start the server ('rails server') then visit http://localhost:3000/inkling/home. 
   MSG
 end
