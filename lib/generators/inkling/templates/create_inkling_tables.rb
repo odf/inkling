@@ -1,13 +1,10 @@
 class CreateInklingTables < ActiveRecord::Migration
   def self.up
-    create_table :inkling_users do |t|
-      t.database_authenticatable
-      t.confirmable
-      t.recoverable
-      t.rememberable
-      t.trackable
-      t.encryptable
-      t.timestamps
+    
+    unless User.table_exists?
+      create_table :users do |t|
+        t.timestamps
+      end
     end
     
     create_table :inkling_roles do |t|
@@ -87,6 +84,9 @@ class CreateInklingTables < ActiveRecord::Migration
     drop_table :inkling_permissions
     drop_table :inkling_role_memberhips    
     drop_table :inkling_roles
-    drop_table :inkling_users
+    
+    unless User.table_exists?
+      drop_table :inkling_users
+    end
   end
 end

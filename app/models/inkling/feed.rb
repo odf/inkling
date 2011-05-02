@@ -3,7 +3,7 @@ class Inkling::Feed < ActiveRecord::Base
 
   acts_as_inkling "Inkling Feed"
 
-  belongs_to :user, :class_name => "Inkling::User", :foreign_key => :user_id
+  belongs_to :user
   has_many :inkling_feed_roles, :class_name => "Inkling::FeedRole"
   validates_presence_of :user
   validates_uniqueness_of :title
