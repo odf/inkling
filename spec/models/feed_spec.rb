@@ -8,7 +8,7 @@ class TestAtom
 end
 
 describe Inkling::Feed do
-  let(:user) {Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")}  
+  let(:user) {User.create!}  
 
   it "should allow creation of a new feed" do
     f = Inkling::Feed.create(
