@@ -31,6 +31,5 @@ module Inkling
 
 Welcome!
 Inkling was bootstrapped at #{Time.now}.
-Start the server ('rails server') then visit http://localhost:3000/inkling/home. 
   MSG
 end
