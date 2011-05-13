@@ -8,7 +8,7 @@ class Inkling::Feed < ActiveRecord::Base
   validates_presence_of :user
   validates_uniqueness_of :title
   validates_length_of :title, :minimum => 1
-  validates :format, :feed_format => true
+  # validates :format, :feed_format => true
   validates_length_of :source, :minimum => 1
 
   private
