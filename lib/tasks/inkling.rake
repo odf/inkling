@@ -25,18 +25,18 @@ namespace :inkling do
     end
   end
 
-  desc "Create a default user with login 'admin' and password 'admin'"
-  task :default_admin => [:environment] do
-    user = Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")
-    Inkling::RoleMembership.create!(:user => user, :role => Inkling::Role.find_by_name(Inkling::Role::ADMIN))
-    puts "Inkling> Created default administrator: login - 'admin@localhost.com', password - 'test123'."
-  end
+  # desc "Create a default user with login 'admin' and password 'admin'"
+  # task :default_admin => [:environment] do
+  #   user = User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")
+  #   Inkling::RoleMembership.create!(:user => user, :role => Inkling::Role.find_by_name(Inkling::Role::ADMIN))
+  #   puts "Inkling> Created default administrator: login - 'admin@localhost.com', password - 'test123'."
+  # end
 
   desc "Initializes inkling data."
   task :init => [:environment] do
-    Inkling::Role.create!(:name => Inkling::Role::ADMIN)
-    Rake::Task["inkling:default_admin"].execute
-    puts "Inkling> Created administrator role."
+    # Inkling::Role.create!(:name => Inkling::Role::ADMIN)
+    # Rake::Task["inkling:default_admin"].execute
+    # puts "Inkling> Created administrator role."
     Inkling::Log.create!(:text => "System was installed.", :category => Inkling::Log::SYSTEM)
   end
   
@@ -46,4 +46,16 @@ namespace :inkling do
   
   desc "Runs specs and cukes."
   task :megatest => [:environment, :spec, :cucumber]
+  
+  
+  namespace :rebuild do
+    
+    desc "Each Inkling::Path loads its content item and calls save! on it, forcing the path to update."
+    task :paths => [:environment] do
+      for path in Inkling::Path.all
+        puts "Path id: (#{path.id}) calling save! on content #{path.content_type} (#{path.content.id})"
+        path.content.save!
+      end
+    end
+  end
 end
