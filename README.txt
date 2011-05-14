@@ -6,7 +6,7 @@ An 'inkling' is a piece of information which is meant to be published.
 
 Current features:
 
-* Inklings - ActiveRecord models can act_as_inkling - giving them friendly URLs. Routes configured are with inkling_match(:foo). Simply write the controller CRUD to define your inkling.
+* Inklings - ActiveRecord models can act_as_inkling - giving them friendly URLs. Routes configured are mapped with inkling_match(:foo). Simply write the controller CRUD to define your inkling.
 * Themes - themes are collections of layouts, partials and templates which are recorded in the database and written out into file format for use.
 * Feeds - feeds can be used to create RSS, Atom, and Email lists. Feeds take strategies and sources, allowing any sort of aggregate information to be assembled.
 * Logs - logs are modelled in the database, and categorised. They can be used to notify users of what has happened in the system, or fine grained auditing.
