@@ -6,6 +6,7 @@ require "inkling/util/slugs"
 require "inkling/routing"
 require "inkling/util"
 require 'inkling/feeds'
+require "inkling/user_methods"
 require 'cancan'
 require "inkling/ability"
 require "devise"
@@ -31,8 +32,5 @@ module Inkling
 
 Welcome!
 Inkling was bootstrapped at #{Time.now}.
-Start the server ('rails server') then visit http://localhost:3000/inkling/users/sign_in. 
-Use the default admin account admin@localhost.com/test123.
-
   MSG
 end

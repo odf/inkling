@@ -1,6 +1,8 @@
 #an associated object which tracks all the relative URL paths to content in the system
 
 class Inkling::Path < ActiveRecord::Base
+  include Inkling::Util::Slugs
+  
   set_table_name :inkling_paths
 
   belongs_to :content, :polymorphic => true
@@ -32,19 +34,6 @@ class Inkling::Path < ActiveRecord::Base
       slug += "#{self.content.title}"
       self.slug = sluggerize(slug)
     end
-  end
-
-  #stolen from enki
-  def sluggerize(slug)
-    slug.downcase!
-    slug.gsub!(/&(\d)+;/, '') # Ditch Entities
-    slug.gsub!('&', 'and') # Replace & with 'and'
-    slug.gsub!(/['"]/, '') # replace quotes by nothing
-    slug.gsub!(/\ +/, '-') # replace all white space sections with a dash
-    slug.gsub!(/(-)$/, '') # trim dashes
-    slug.gsub!(/^(-)/, '') # trim dashes
-    slug.gsub!(/[^\/a-zA-Z0-9\-]/, '-') # Get rid of anything we don't like
-    slug
   end
 
   def slug_unique?

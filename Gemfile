@@ -1,14 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '>= 3.0.3'
+gem 'rails', '>= 3.0.7'
 
 gem 'jeweler'
 gem 'gemcutter', '>= 0.6.1'
-gem "devise", ">= 1.1.3"
 gem 'inherited_resources'
 gem 'formtastic', '>= 1.1.0'
+<<<<<<< HEAD
 # gem 'cancan'
 gem "ratom"
+=======
+gem 'cancan'
+
+>>>>>>> master
  
 group :development, :test do
 	gem "rspec-rails", ">= 2.5.0"

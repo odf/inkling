@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Inkling::Permission do
   let(:type) {Inkling::Type.create!(:klass_name => "String")}
-  let(:user) {Inkling::User.create!(:email => "admin@localhost.com", :password => "test123", :password_confirmation => "test123")}  
+  let(:user) {User.create!}  
 
   it "should let an administrator have automatic manage permission over foo" do    
     create_role_and_membership(Inkling::Role::ADMIN, user)
