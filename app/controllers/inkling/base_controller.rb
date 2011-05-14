@@ -2,8 +2,8 @@ class Inkling::BaseController < ApplicationController
 
   alias current_user current_inkling_user
   helper_method :current_user
-  before_filter :authenticate_inkling_user!
+  # before_filter :authenticate_inkling_user!
 
-  layout 'inkling/manage'
+  # layout 'inkling/manage'
 
 end

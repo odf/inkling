@@ -5,7 +5,7 @@ module Inkling
       def inkling_match(inkling_str)
 #        inkling_str = resource_sym.to_s
         klass = inkling_str.classify
-        match '/*path' => "#{inkling_str}#show", :as => resource_sym, :constraints => Inkling::Routing::TypeConstraint.new(klass)
+        match '/*path' => "#{inkling_str}#show", :as => inkling_str, :constraints => Inkling::Routing::TypeConstraint.new(klass)
       end
     end
         

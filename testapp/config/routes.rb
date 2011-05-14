@@ -6,7 +6,7 @@ Testapp::Application.routes.draw do |map|
     end
   end
 
-  inkling_match("inkling/feed")
+  inkling_match("inkling/feeds")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
