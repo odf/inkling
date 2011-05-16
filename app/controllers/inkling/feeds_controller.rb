@@ -1,5 +1,7 @@
 class Inkling::FeedsController < ApplicationController
 
+  loyout 'none'
+  
   def show
     @feed = Inkling::Feed.find(params[:id])
 
