@@ -3,9 +3,9 @@ class Inkling::Feed < ActiveRecord::Base
 
   acts_as_inkling "Inkling Feed"
 
-  belongs_to :user
+  # belongs_to :user
   has_many :inkling_feed_roles, :class_name => "Inkling::FeedRole"
-  validates_presence_of :user
+  # validates_presence_of :user
   validates_uniqueness_of :title
   validates_length_of :title, :minimum => 1
   validates_length_of :source, :minimum => 1

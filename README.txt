@@ -1,4 +1,4 @@
-Inkling is a toolset for building Knowledge Management Systems. It can easily be added to a Rails 3 app as an engine. It is currently written to run on ActiveRecord, against Postgres, but an early goal was to abstract all model logic into Active Model.
+Inkling is a toolset for building Knowledge Management Systems - mostly an assembly of Rails friendly methods for publishing information. It can easily be added to a Rails 3 app as an engine. It is currently written to run on ActiveRecord, against Postgres, but an early goal was to abstract all model logic into Active Model.
 
 As a toolset, it leverages Rails conventions (acts_as methods, etc.) to allow developers to assemble their own knowledge management system easily, without introducing further rules to restrict their development elsewhere of typical Rails features. 
 

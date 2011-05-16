@@ -41,7 +41,6 @@ end
 
 #for Feed a Format which has a method "generate" is required, see below
 Inkling::Feed.blueprint do
-  user
   title Sham.title
   source Sham.word
   criteria Sham.reason  

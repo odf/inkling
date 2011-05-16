@@ -8,11 +8,11 @@ require File.dirname(__FILE__) + '/../spec_helper'
 # end
 
 describe Inkling::Feed do
-  let(:user) {User.create!}  
+  # let(:user) {User.create!}  
 
   it "should allow creation of a new feed" do
     f = Inkling::Feed.create(
-        :user => user,
+        # :user => user,
         :title => 'Some title',
         :format => 'TestAtom',
         :criteria => '',
@@ -26,7 +26,7 @@ describe Inkling::Feed do
 
   it "should enforce required fields" do
     attrs = {
-        :user => user,
+        # :user => user,
         :title => 'Some title',
         :format => 'TestAtom',
         :source => 'String'
