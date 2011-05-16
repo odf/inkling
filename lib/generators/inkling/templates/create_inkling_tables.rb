@@ -59,7 +59,7 @@ class CreateInklingTables < ActiveRecord::Migration
 
     create_table :inkling_feeds do |t|
       t.timestamp :created_at, :null => false
-
+      t.string :authors # a comma separated list identifying the authors, not always the same thing as user classes, so left to discretion of creator
       t.string :title, :null => false     # Name of the feed
       t.string :format, :null => false    # Delivery mechanism (Atom, RSS2, Email, etc)
       t.string :source, :null => false    # Class name which implements the methods of Inkling::FeedSource
