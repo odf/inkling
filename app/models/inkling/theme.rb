@@ -58,7 +58,6 @@ class Inkling::Theme < ActiveRecord::Base
   # (just like any sub directory in app/views)
   def self.install_from_dir(dir)
     for entry in Dir.entries(dir)
-
       if File.file?("#{dir}/#{entry}")
         template = File.open("#{dir}/#{entry}").readlines
         bits =  entry.split(".")
@@ -81,9 +80,10 @@ class Inkling::Theme < ActiveRecord::Base
   end
   
   def check_init
-    mkdir(Inkling::TMP_DIR) unless File.exist?(Inkling::TMP_DIR)
-    mkdir("#{Inkling::THEMES_DIR}") unless File.exist?("#{Inkling::THEMES_DIR}") 
-    mkdir("#{Inkling::THEME_LAYOUTS_DIR}") unless File.exist?("#{Inkling::THEME_LAYOUTS_DIR}") 
+    FileUtils.mkdir_p(Inkling::THEME_LAYOUTS_DIR)
+    # mkdir(Inkling::TMP_DIR) unless File.exist?(Inkling::TMP_DIR)
+    # mkdir(Inkling::THEMES_DIR) unless File.exist?(Inkling::THEMES_DIR) 
+    # mkdir(Inkling::THEME_LAYOUTS_DIR) unless File.exist?(Inkling::THEME_LAYOUTS_DIR) 
   end
   
   def delete_file
