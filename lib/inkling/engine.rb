@@ -9,8 +9,7 @@ require 'inkling/feeds'
 require "inkling/user_methods"
 require 'cancan'
 require "inkling/ability"
-require "devise"
-require 'devise/orm/active_record'
+
 
 require "rails"
 

@@ -6,13 +6,8 @@ gem 'jeweler'
 gem 'gemcutter', '>= 0.6.1'
 gem 'inherited_resources'
 gem 'formtastic', '>= 1.1.0'
-<<<<<<< HEAD
-# gem 'cancan'
 gem "ratom"
-=======
 gem 'cancan'
-
->>>>>>> master
  
 group :development, :test do
 	gem "rspec-rails", ">= 2.5.0"
