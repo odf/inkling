@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '>= 3.0.7'
 
-gem 'jeweler'
 gem 'gemcutter', '>= 0.6.1'
 gem 'inherited_resources'
 gem 'formtastic', '>= 1.1.0'
@@ -15,7 +14,6 @@ group :development, :test do
 	gem 'capybara', ">= 0.4.1.1"
 	gem 'spork'
 	gem 'launchy'    # So you can do Then show me the page
-	gem 'jeweler'
 	gem 'gemcutter', '>= 0.6.1'
 	gem "autotest"
 	gem 'steak', '>= 1.0.0.rc.1'
