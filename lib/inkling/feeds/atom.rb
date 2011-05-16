@@ -13,7 +13,15 @@ class Inkling::Feeds::Atom
       updated = @sources.map{|s| s[:updated_at]}.max || Time.now
     
       f.updated = updated.to_s(:iso8601)
-      f.authors << ::Atom::Person.new(:name => "test person")
+      
+      if record.authors
+        authors = record.authors.split(",") 
+      
+        authors.each do |author|
+          f.authors << ::Atom::Person.new(:name => "#{author}")
+        end
+      end
+      
       f.id = 'tag:'+ record.id.to_s
 
       @sources.each do |source|

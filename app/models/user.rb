@@ -3,4 +3,8 @@
 
 class User < ActiveRecord::Base
   acts_as_inkling_user
+  
+  def to_s
+    "user-#{self.id}"
+  end
 end

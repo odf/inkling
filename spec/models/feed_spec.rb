@@ -1,18 +1,10 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-# This class must exist or the format validation fails
-# class TestAtom
-#   # The generate method makes it look like a good Inkling::Feed::Format:
-#   def generate feedable
-#   end
-# end
-
 describe Inkling::Feed do
-  # let(:user) {User.create!}  
 
   it "should allow creation of a new feed" do
     f = Inkling::Feed.create(
-        # :user => user,
+        :authors => "test user1, testuser2",
         :title => 'Some title',
         :format => 'TestAtom',
         :criteria => '',
@@ -26,7 +18,6 @@ describe Inkling::Feed do
 
   it "should enforce required fields" do
     attrs = {
-        # :user => user,
         :title => 'Some title',
         :format => 'TestAtom',
         :source => 'String'
@@ -39,9 +30,9 @@ describe Inkling::Feed do
   end
   
   it "should work with Inkling::Feeds::Atom and Inkling::Feeds::LogSource" do
-    feed = Inkling::Feed.make(:format => "Inkling::Feeds::Atom", :source => "Inkling::Feeds::LogSource")
+    feed = Inkling::Feed.make(:format => "Inkling::Feeds::Atom", :source => "Inkling::Feeds::LogSource", :authors => "user1, user2")
     #make some test data
-    99.times {|i| Inkling::Log.make}
+    5.times {|i| Inkling::Log.make}
     xml = feed.generate
     puts xml
     xml.should_not be_nil

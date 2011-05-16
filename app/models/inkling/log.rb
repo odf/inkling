@@ -11,7 +11,7 @@ class Inkling::Log < ActiveRecord::Base
 
   def to_feedable
     {
-      :title => "LOG by #{user_id.inspect}",  # REVISIT
+      :title => "LOG by #{user}",  # REVISIT
       :url => "/logs/#{id}",
       :updated_at => created_at,
       :text => text

@@ -1,4 +1,12 @@
-class Inkling::FeedsController < Inkling::BaseController
-  inherit_resources
-  defaults :resource_class => Inkling::Feed, :instance_name => 'feed'
+class Inkling::FeedsController < ApplicationController
+
+  def show
+    @feed = Inkling::Feed.find(params[:id])
+
+    respond_to do |format|
+      format.xml do
+        render :xml => @feed.generate
+      end
+    end
+  end
 end
