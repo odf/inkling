@@ -5,7 +5,7 @@ class Inkling::Feeds::Atom
   include Inkling::Feeds::Format
   
   def self.generate(record)
-    @sources = record.source_class.list
+    @sources = record.source_class.list(record.criteria)
     
     feed = ::Atom::Feed.new do |f|
       f.title = @title
