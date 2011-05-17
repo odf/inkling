@@ -34,7 +34,7 @@ describe Inkling::Feed do
     #make some test data
     5.times {|i| Inkling::Log.make}
     xml = feed.generate
-    puts xml
     xml.should_not be_nil
+    xml =~ /#{Inkling::Log.last.text}/
   end
 end

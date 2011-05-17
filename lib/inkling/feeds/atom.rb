@@ -4,6 +4,10 @@ require 'digest/sha1'
 class Inkling::Feeds::Atom 
   include Inkling::Feeds::Format
   
+  def self.responds_to
+    :atom
+  end
+  
   def self.generate(record)
     @sources = record.source_class.list(record.criteria)
     

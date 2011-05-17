@@ -1,3 +1,14 @@
+* nesstar - analyse & download via ADAUsers
+* saved search
+* browse
+* controlled list of roles from ADAUsers to allow who can access the backend
+* feeds
+* staging server
+
+
+* my account page - users with roles who cannot access the backend of the CMS
+* tasks 
+
 <<<<<<< HEAD
 <!-- <span <%= "id='content-form-#{path.id}' style='display:none, inline'" if path %> > -->
 	<%= form_tag(inkling_proxy_new_path, :class => "tree-form") do %>

@@ -31,4 +31,8 @@ class TestAtom
   # The generate method makes it look like a good Inkling::Feed::Format:
   def self.generate()
   end
+  
+  def self.responds_to
+    :atom
+  end
 end

@@ -1,14 +1,17 @@
 class Inkling::FeedsController < ApplicationController
-
-  loyout 'none'
   
   def show
     @feed = Inkling::Feed.find(params[:id])
-
+    
+    # puts @feed.generate
+    
+    puts " --------------------------- \n\n"
+    
     respond_to do |format|
-      format.xml do
-        render :xml => @feed.generate
+      # debugger
+      # format.send(@feed.format) do
+        render :xml => @feed.generate, :layout => false
       end
-    end
+    # end
   end
 end
