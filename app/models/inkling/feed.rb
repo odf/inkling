@@ -4,7 +4,7 @@ class Inkling::Feed < ActiveRecord::Base
   set_table_name 'inkling_feeds'
   acts_as_inkling "Inkling Feed"
 
-  # serialize :criteria #stored as a hash, the source class can do whatever it wants with it
+  serialize :criteria #stored as a hash, the source class can do whatever it wants with it
   
   has_many :inkling_feed_roles, :class_name => "Inkling::FeedRole"
   validates_uniqueness_of :title

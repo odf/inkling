@@ -12,7 +12,7 @@ module Inkling
           raise StandardError("Inkling: inkling_match(foo) is wrong; foo should be a Symbol or a String -'foo/bar' for Foo::Bar. :foo for Foo.")
         end
         
-        match '/*path' => "#{resource}#show", :as => resource, :constraints => Inkling::Routing::TypeConstraint.new(klass)
+        match '/*path(.:format)' => "#{resource}#show", :as => resource, :constraints => Inkling::Routing::TypeConstraint.new(klass)
       end
     end
         
@@ -30,7 +30,7 @@ module Inkling
 
         if matching_path
           result = matching_path.content.is_a? @type.constantize
-          request.params[:id] = matching_path.content.id
+          request.params[:id] = matching_path.content.id if result
           result
         else
           false
