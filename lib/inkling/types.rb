@@ -35,6 +35,10 @@ module Inkling
         self.path.update_slug!
         self.path.save!
       end
+      
+      def uri
+        path.slug
+      end
     end
 
     class Register

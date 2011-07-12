@@ -10,6 +10,8 @@ class CreateInklingPostgresOptimizations < ActiveRecord::Migration
     add_foreign_key(:inkling_feeds, :user_id, :users)
     add_foreign_key(:inkling_feed_roles, :feed_id, :inkling_feeds)
     add_foreign_key(:inkling_feed_roles, :role_id, :inkling_roles)
+    
+    add_index(:inkling_paths, :slug)
   end
 
   def self.down
