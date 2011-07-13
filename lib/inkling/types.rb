@@ -36,7 +36,7 @@ module Inkling
         self.path.save!
       end
       
-      def uri
+      def urn
         path.slug
       end
     end
