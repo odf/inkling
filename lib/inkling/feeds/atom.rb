@@ -12,7 +12,7 @@ class Inkling::Feeds::Atom
     @sources = record.source_class.list(record.criteria)
     
     feed = ::Atom::Feed.new do |f|
-      f.title = @title
+      f.title = record.title
       f.links << ::Atom::Link.new(:href => record.path.slug) 
       updated = @sources.map{|s| s[:updated_at]}.max || Time.now
     
