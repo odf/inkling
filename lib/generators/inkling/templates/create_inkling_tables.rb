@@ -30,12 +30,7 @@ class CreateInklingTables < ActiveRecord::Migration
       t.string :klass_name
       t.timestamps
     end    
-    
-    create_table :inkling_can_can_actions do |t|
-      t.string :name
-      t.timestamps
-    end    
-    
+
     create_table :inkling_permissions do |t|
       t.integer :type_id
       t.integer :role_id, :null => false

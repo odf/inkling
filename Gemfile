@@ -6,7 +6,6 @@ gem 'gemcutter', '>= 0.6.1'
 gem 'inherited_resources'
 gem 'formtastic', '>= 1.1.0'
 gem "ratom"
-gem 'cancan'
  
 group :development, :test do
 	gem "rspec-rails", ">= 2.5.0"

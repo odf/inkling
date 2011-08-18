@@ -58,4 +58,11 @@ namespace :inkling do
       end
     end
   end
+
+  desc "delete from inkling_logs where id in (select id from inkling_logs order by created_at offset Inkling::MAX_LOGS)."
+  task :clean_logs do
+    if Inkling::Log.count > Inkling::MAX_LOGS
+      Inkling::Log.connection.execute("delete from inkling_logs where id in (select id from inkling_logs order by created_at offset #{Inkling::MAX_LOGS})").first
+    end
+  end
 end
