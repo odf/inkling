@@ -30,18 +30,6 @@ class CreateInklingTables < ActiveRecord::Migration
       t.string :klass_name
       t.timestamps
     end    
-    
-    create_table :inkling_can_can_actions do |t|
-      t.string :name
-      t.timestamps
-    end    
-    
-    create_table :inkling_permissions do |t|
-      t.integer :type_id
-      t.integer :role_id, :null => false
-      t.integer :can_can_action_id
-      t.timestamps
-    end    
 
     create_table :inkling_themes do |t|
       t.string :name, :null => false
@@ -64,22 +52,12 @@ class CreateInklingTables < ActiveRecord::Migration
       t.string :format, :null => false    # Delivery mechanism (Atom, RSS2, Email, etc)
       t.string :source, :null => false    # Class name which implements the methods of Inkling::FeedSource
       t.string :criteria                  # A string that gets passed to the FeedSource
-    end    
-
-    create_table :inkling_feed_roles do |t|
-      t.timestamp :created_at, :null => false
-      t.string :title, :null => false
-      t.integer :feed_id, :null => false
-      t.integer :role_id, :null => false
-    end    
-
+    end    =
   end
 
   def self.down
-    drop_table :inkling_feed_roles
     drop_table :inkling_feeds
     drop_table :inkling_paths
-    drop_table :inkling_can_can_actions
     drop_table :inkling_types    
     drop_table :inkling_permissions
     drop_table :inkling_role_memberhips    

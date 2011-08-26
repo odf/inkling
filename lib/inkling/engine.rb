@@ -17,6 +17,7 @@ module Inkling
   THEMES_DIR = "#{TMP_DIR}themes/"
   THEME_LAYOUTS_DIR = "#{THEMES_DIR}layouts/"
   BOOTSTRAP_TASKS = []
+  MAX_LOGS = 25000
   
   class Engine < Rails::Engine
     config.inkling = Inkling

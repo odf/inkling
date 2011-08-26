@@ -6,11 +6,9 @@ class Inkling::Feed < ActiveRecord::Base
 
   serialize :criteria #stored as a hash, the source class can do whatever it wants with it
   
-  has_many :inkling_feed_roles, :class_name => "Inkling::FeedRole"
   validates_uniqueness_of :title
   validates_length_of :title, :minimum => 1
   validates_presence_of :format
-  # validate format_is_a_symbol
   validate :format_required_method, :message => "An Inkling::Feeds::Format must implement self.generate(feed)."
   validates_length_of :source, :minimum => 1
 
