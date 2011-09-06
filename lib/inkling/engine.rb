@@ -6,7 +6,6 @@ require "inkling/routing"
 require "inkling/util"
 require 'inkling/feeds'
 require "inkling/user_methods"
-require 'cancan'
 require "inkling/ability"
 
 
