@@ -8,7 +8,6 @@ require 'inkling/feeds'
 require "inkling/user_methods"
 require "inkling/ability"
 
-
 require "rails"
 
 module Inkling
