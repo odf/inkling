@@ -9,8 +9,8 @@ class Inkling::Role < ActiveRecord::Base
   validates_uniqueness_of :name
 
   def <<(user)
- 	if user.is_a? User
- 		Inkling::RoleMembership.create!(:role => self, :user => user)
- 	end
+	 	if user.is_a? User
+	 		Inkling::RoleMembership.create!(:role => self, :user => user)
+	 	end
   end
 end

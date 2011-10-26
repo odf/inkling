@@ -1,9 +1,17 @@
-# This file is copied to ~/spec when you run 'ruby script/generate rspec'
-# from the project root directory.
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path(File.dirname(__FILE__) + "/../config/environment") #nf patching generated spec_helper
+require 'rubygems'
+require 'bundler'
+require 'bundler/setup'
+
+Bundler.require :default, :development
+
+Combustion.initialize!
+# Bundler.require :default, :development
+
+
+# require File.expand_path(File.dirname(__FILE__) + "/../config/environment") #nf patching generated spec_helper
 #require File.dirname(__FILE__) + "/../config/environment" unless defined?(Rails)
 require 'rspec/rails'
+require 'capybara/rspec'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -24,8 +32,6 @@ Rspec.configure do |config|
   # config.use_transactional_examples = false
   config.use_transactional_examples = true
 end
-
-
 
 class TestAtom
   # The generate method makes it look like a good Inkling::Feed::Format:

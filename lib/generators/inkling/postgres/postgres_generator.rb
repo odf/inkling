@@ -5,7 +5,7 @@ class Inkling::PostgresGenerator < Rails::Generators::Base
   
   desc "Creates optimizations for postgres Inkling tables."
   
-  source_root File.expand_path("../../../templates", __FILE__)
+  source_root File.expand_path("../../templates", __FILE__)
 
   def self.next_migration_number(dirname)
     if ActiveRecord::Base.timestamped_migrations

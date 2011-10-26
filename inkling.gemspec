@@ -16,6 +16,9 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = ">= 1.3.6"
 
+  s.add_dependency('ratom')
+  s.add_dependency('pg')
+
   s.add_development_dependency "rspec"
 
   s.files        = Dir.glob("{bin,lib}/**/*") 

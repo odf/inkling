@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   def to_s
     "user-#{self.id}"
   end
+
+  def is_administrator?
+  	true
+  end
 end
